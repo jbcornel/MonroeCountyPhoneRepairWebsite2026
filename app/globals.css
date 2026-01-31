@@ -1,0 +1,139 @@
+/* Global layout hygiene */
+html,
+body {
+  height: 100%;
+}
+
+.site-main {
+  min-height: 60vh;
+  /* Leave room for the mobile sticky CTA bar */
+  padding-bottom: 88px;
+}
+
+/* Prevent horizontal scrolling from accidental overflow */
+body {
+  overflow-x: hidden;
+}
+
+/* Improve tap targets by default */
+a,
+button {
+  touch-action: manipulation;
+}
+
+/* Make images and embeds safe by default */
+img,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+/* Mobile CTA bar uses safe-area insets */
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+
+/* === MCPR Card System === */
+
+.mcpr-card {
+  background: rgba(255,255,255,0.92);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+  color: #1F2933;
+  backdrop-filter: blur(6px);
+}
+
+.mcpr-card h1,
+.mcpr-card h2,
+.mcpr-card h3,
+.mcpr-card h4 {
+  color: #1F2933;
+}
+
+.mcpr-card .text-muted {
+  color: #4B5563 !important;
+}
+
+
+.mcpr-btn-primary {
+  background: #9820A3;
+  border: none;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow: 0 6px 16px rgba(152,32,163,0.35);
+}
+
+.mcpr-btn-primary:hover {
+  background: #7b1984;
+  transform: translateY(-1px);
+}
+
+.mcpr-btn-outline {
+  border: 2px solid #9820A3;
+  color: #9820A3;
+  background: transparent;
+}
+
+.mcpr-btn-outline:hover {
+  background: #9820A3;
+  color: white;
+}
+
+.instagram-media {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 540px !important;
+}
+
+
+/* Hero content card */
+.mcpr-hero-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Better spacing on small screens */
+@media (max-width: 576px) {
+  .mcpr-hero-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+}
+
+
+/* Auto alternating section backgrounds */
+.mcpr-alt > section:nth-of-type(3n + 1) {
+  background-color: #FFFFFF;
+}
+
+.mcpr-alt > section:nth-of-type(3n + 2) {
+  background-color: #9463FD;
+}
+
+.mcpr-alt > section:nth-of-type(3n + 3) {
+  background-color: #393939;
+  color: #ffffff; /* readable text */
+}
+
+/* Ensure dark sections flip text automatically */
+.mcpr-alt > section:nth-of-type(3n + 3) h1,
+.mcpr-alt > section:nth-of-type(3n + 3) h2,
+.mcpr-alt > section:nth-of-type(3n + 3) p {
+  color: #ffffff;
+}
+
+footer{
+  background-color: #BFDCE8;
+}
+
+.reviews-page{
+  background-color: #BFDCE8;
+}

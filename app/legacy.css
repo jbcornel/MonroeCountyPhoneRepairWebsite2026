@@ -1,0 +1,149 @@
+/* Reserve space for fixed header so content isn't hidden under it */
+body {
+  padding-top: 72px;
+  background-color: #ffffff
+}
+
+.mcpr-bg {
+   background-color: #79E8D7
+}
+/* Canvas stays behind header */
+canvas {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  outline: none;
+  border: none;
+}
+
+/* MCPR Navbar Theme */
+.mcpr-navbar {
+  background-color: #393939!important;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+.mcpr-brand {
+  text-decoration: none;
+  color: #fff !important;
+  text-shadow: 2px 2px 5px black;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.mcpr-brand-top {
+  font-size: 0.75rem;
+}
+
+.mcpr-brand-bottom {
+  font-size: 1.05rem;
+}
+
+.mcpr-link {
+  color: rgba(255,255,255,0.92) !important;
+  text-shadow: 1px 1px 5px black;
+  font-size: 0.75rem;
+}
+
+.mcpr-link:hover,
+.mcpr-link:focus {
+  color: #fff !important;
+}
+
+/* Toggler */
+.mcpr-toggler {
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.mcpr-toggler:focus {
+  box-shadow: none;
+}
+
+/* Dropdown menu theme */
+.mcpr-dropdown {
+  background: #BFDCE8;
+  
+  border: 2px solid rgba(0,0,0,0.25);
+  font-family: 'Press Start 2P', cursive;
+}
+
+.mcpr-dropdown .dropdown-item {
+  color: #111;
+  font-size: 0.7rem;
+}
+
+.mcpr-dropdown .dropdown-item:hover,
+.mcpr-dropdown .dropdown-item:focus {
+  background: rgba(152, 32, 163, 0.15);
+}
+
+/* CTA buttons in nav */
+.mcpr-cta {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  border-width: 2px;
+}
+
+.mcpr-cta-solid {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  border-width: 2px;
+}
+.mcpr-social {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.75rem;
+  color: #9820A3;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.mcpr-social:hover {
+  color: #7b1984;
+  text-decoration: underline;
+}
+
+.mcpr-social-light {
+  color: rgba(255,255,255,0.92);
+  text-shadow: 1px 1px 5px black;
+}
+
+.mcpr-social-light:hover {
+  color: #ffffff;
+}
+
+
+/* Primary button (dark filled) */
+.mcpr-btn-primary {
+  background: #212529; /* bootstrap dark */
+  color: #fff;
+  border: 2px solid #212529;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+
+.mcpr-btn-primary:hover {
+  background: #111;
+  border-color: #111;
+}
+
+/* Secondary button (white filled, dark border) */
+.mcpr-btn-secondary {
+  background: #ffffff;
+  color: #212529;
+  border: 2px solid #212529;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-weight: 700;
+
+  /* smooth transition that feels intentional */
+  transition: background-color 160ms ease, color 160ms ease, transform 120ms ease, box-shadow 160ms ease;
+}
+
+.mcpr-btn-secondary:hover,
+.mcpr-btn-secondary:focus {
+  background: #212529;     /* invert on hover */
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}

@@ -1,0 +1,112 @@
+/* [project]/app/globals.css [app-client] (css) */
+html, body {
+  height: 100%;
+}
+
+.site-main {
+  min-height: 60vh;
+  padding-bottom: 88px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a, button {
+  touch-action: manipulation;
+}
+
+img, svg, iframe {
+  max-width: 100%;
+}
+
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.mcpr-card {
+  color: #1f2933;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  background: #ffffffeb;
+  border: 1px solid #00000014;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px #00000014, inset 0 0 0 1px #fff6;
+}
+
+.mcpr-card h1, .mcpr-card h2, .mcpr-card h3, .mcpr-card h4 {
+  color: #1f2933;
+}
+
+.mcpr-card .text-muted {
+  color: #4b5563 !important;
+}
+
+.mcpr-btn-primary {
+  color: #fff;
+  background: #9820a3;
+  border: none;
+  font-family: "Press Start 2P", cursive;
+  box-shadow: 0 6px 16px #9820a359;
+}
+
+.mcpr-btn-primary:hover {
+  background: #7b1984;
+  transform: translateY(-1px);
+}
+
+.mcpr-btn-outline {
+  color: #9820a3;
+  background: none;
+  border: 2px solid #9820a3;
+}
+
+.mcpr-btn-outline:hover {
+  color: #fff;
+  background: #9820a3;
+}
+
+.instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 540px !important;
+}
+
+.mcpr-hero-card {
+  background: #fffffff2;
+  border: 1px solid #00000014;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 14px 30px #0000001f;
+}
+
+@media (max-width: 576px) {
+  .mcpr-hero-card {
+    border-radius: 16px;
+    padding: 18px;
+  }
+}
+
+.mcpr-alt > section:nth-of-type(3n+1) {
+  background-color: #fff;
+}
+
+.mcpr-alt > section:nth-of-type(3n+2) {
+  background-color: #9463fd;
+}
+
+.mcpr-alt > section:nth-of-type(3n+3) {
+  color: #fff;
+  background-color: #393939;
+}
+
+.mcpr-alt > section:nth-of-type(3n+3) h1, .mcpr-alt > section:nth-of-type(3n+3) h2, .mcpr-alt > section:nth-of-type(3n+3) p {
+  color: #fff;
+}
+
+footer, .reviews-page {
+  background-color: #bfdce8;
+}
+
+/*# sourceMappingURL=app_globals_css_bad6b30c._.single.css.map*/
