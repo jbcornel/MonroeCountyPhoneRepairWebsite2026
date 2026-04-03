@@ -34,8 +34,20 @@ services:
 #     volumes:
 #       - db-data:/var/lib/postgresql/data
 #     environment:
-#       - POSTGRES_DB=example
-#       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+#       - 
+#       - 
+#.      - NODE_ENV=production
+ #       - PORT=8080
+  #      - LEADS_TO_EMAIL=josephcornellbusiness@gmail.com
+ #       -LEADS_FROM_EMAIL=Monroe County Phone Repair <josephcornellbusiness@gmail.com>
+#
+  #      - SMTP_HOST=smtp.gmail.com
+  #      - SMTP_PORT=465
+ #       - SMTP_SECURE=true
+  #      - SMTP_USER=josephcornellbusiness@gmail.com
+  #      - SMTP_PASS=fpxc ofwl mrjl tref
+  #      - SMTP_FROM=Monroe County Phone Repair <josephcornellbusiness@gmail.com>
+
 #     expose:
 #       - 5432
 #     healthcheck:

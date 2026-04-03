@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Repairs',
-  description: 'Phone repair services in Monroe, MI: iPhone, Samsung, Android.',
+  title: 'Repairs & Services',
+  description: 'Phone repair services in Monroe, MI: iPhone, Samsung, Android. Plus data recovery and mail-in repair.',
 };
 
 export default function RepairsPage() {
@@ -35,6 +35,28 @@ export default function RepairsPage() {
               <div className="text-muted mt-2">Other Android phones and tablets.</div>
               <div className="mt-3">
                 <Link className="btn btn-dark" href="/repairs/android">View Android repairs</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="h4 fw-bold mt-5 mb-3">Other Services</h2>
+        <div className="row g-3">
+          <div className="col-12 col-md-4">
+            <div className="mcpr-card h-100">
+              <div className="fw-bold">Data Recovery</div>
+              <div className="text-muted mt-2">Recover photos, contacts, and data from damaged or broken devices.</div>
+              <div className="mt-3">
+                <Link className="btn btn-dark" href="/services/data-recovery">Learn more</Link>
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-md-4">
+            <div className="mcpr-card h-100">
+              <div className="fw-bold">Mail-in Repair</div>
+              <div className="text-muted mt-2">Can&rsquo;t visit? Ship us your device for professional repair.</div>
+              <div className="mt-3">
+                <Link className="btn btn-dark" href="/services/mail-in">Learn more</Link>
               </div>
             </div>
           </div>

@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///Users/josephcornell/monroeCountyPhoneRepairWebsite2026/app/page.tsx"],"sourcesContent":["import Hero from '@/components/home/Hero';\nimport ServicesGrid from '@/components/home/ServicesGrid';\nimport HowItWorks from '@/components/home/HowItWorks';\nimport ReviewsTeaser from '@/components/home/ReviewsTeaser';\nimport MapSection from '@/components/home/MapSection';\nimport FaqAccordion from '@/components/home/FaqAccordion';\n\nexport default function HomePage() {\n  return (\n    <>\n      <Hero />\n      <ServicesGrid />\n      <HowItWorks />\n      <ReviewsTeaser />\n      <MapSection />\n      <FaqAccordion />\n    </>\n  );\n}\n"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAOe,SAAS;IACtB,qBACE;;0BACE,8OAAC;;;;;0BACD,8OAAC;;;;;0BACD,8OAAC;;;;;0BACD,8OAAC;;;;;0BACD,8OAAC;;;;;0BACD,8OAAC;;;;;;;AAGP"}}]
-}

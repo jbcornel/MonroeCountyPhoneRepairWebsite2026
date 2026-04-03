@@ -55,6 +55,9 @@ export default function HeaderNav() {
                 <li><Link className="dropdown-item" href="/repairs/iphone">iPhone Repair</Link></li>
                 <li><Link className="dropdown-item" href="/repairs/samsung">Samsung Repair</Link></li>
                 <li><Link className="dropdown-item" href="/repairs/android">Android Repair</Link></li>
+                <li><hr className="dropdown-divider" /></li>
+                <li><Link className="dropdown-item" href="/services/data-recovery">Data Recovery</Link></li>
+                <li><Link className="dropdown-item" href="/services/mail-in">Mail-in Repair</Link></li>
               </ul>
             </li>
 

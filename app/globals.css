@@ -1,139 +1,498 @@
-/* Global layout hygiene */
+/* === Design Tokens === */
+:root {
+  --mcpr-primary: #9820A3;
+  --mcpr-primary-hover: #7b1984;
+  --mcpr-primary-light: rgba(152, 32, 163, 0.06);
+  --mcpr-dark: #1F2933;
+  --mcpr-dark-bg: #1F2933;
+  --mcpr-muted: #616B77;
+  --mcpr-light-bg: #F5F6F8;
+  --mcpr-accent-bg: #BFDCE8;
+  --mcpr-white: #ffffff;
+  --mcpr-border: rgba(0, 0, 0, 0.1);
+  --mcpr-shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --mcpr-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --mcpr-shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --mcpr-radius: 10px;
+  --mcpr-radius-lg: 14px;
+  --mcpr-transition: 0.2s ease;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* === Global Reset & Typography === */
 html,
 body {
   height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--mcpr-dark);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .site-main {
   min-height: 60vh;
-  /* Leave room for the mobile sticky CTA bar */
   padding-bottom: 88px;
 }
 
-/* Prevent horizontal scrolling from accidental overflow */
-body {
-  overflow-x: hidden;
-}
-
-/* Improve tap targets by default */
+/* Improve tap targets */
 a,
 button {
   touch-action: manipulation;
 }
 
-/* Make images and embeds safe by default */
+/* Safe images and embeds */
 img,
 svg,
 iframe {
   max-width: 100%;
 }
 
-/* Mobile CTA bar uses safe-area insets */
-:root {
-  --safe-bottom: env(safe-area-inset-bottom, 0px);
+/* === Typography Utilities === */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: var(--mcpr-dark);
+  letter-spacing: -0.01em;
 }
 
+.lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--mcpr-muted);
+}
+
+.text-muted {
+  color: var(--mcpr-muted) !important;
+}
+
+/* === Smooth Transitions on Interactive Elements === */
+a {
+  transition: color var(--mcpr-transition);
+}
+
+.btn {
+  transition: all var(--mcpr-transition);
+}
 
 /* === MCPR Card System === */
-
 .mcpr-card {
-  background: rgba(255,255,255,0.92);
-  border-radius: 16px;
+  background: var(--mcpr-white);
+  border-radius: var(--mcpr-radius);
   padding: 1.5rem;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.08),
-    inset 0 0 0 1px rgba(255,255,255,0.4);
-  color: #1F2933;
-  backdrop-filter: blur(6px);
+  border: 1px solid var(--mcpr-border);
+  box-shadow: var(--mcpr-shadow-sm);
+  color: var(--mcpr-dark);
+  transition: box-shadow var(--mcpr-transition), transform var(--mcpr-transition);
+}
+
+.mcpr-card:hover {
+  box-shadow: var(--mcpr-shadow-md);
 }
 
 .mcpr-card h1,
 .mcpr-card h2,
 .mcpr-card h3,
 .mcpr-card h4 {
-  color: #1F2933;
+  color: var(--mcpr-dark);
 }
 
 .mcpr-card .text-muted {
-  color: #4B5563 !important;
+  color: var(--mcpr-muted) !important;
 }
 
+/* Card with link behavior — subtle lift on hover */
+a.mcpr-card,
+.mcpr-card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--mcpr-shadow-lg);
+}
 
+/* === Buttons === */
 .mcpr-btn-primary {
-  background: #9820A3;
-  border: none;
-  color: white;
-  font-family: 'Press Start 2P', cursive;
-  box-shadow: 0 6px 16px rgba(152,32,163,0.35);
+  background: var(--mcpr-dark);
+  color: var(--mcpr-white);
+  border: 2px solid var(--mcpr-dark);
+  border-radius: var(--mcpr-radius);
+  padding: 12px 20px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: all var(--mcpr-transition);
 }
 
 .mcpr-btn-primary:hover {
-  background: #7b1984;
+  background: #111;
+  border-color: #111;
   transform: translateY(-1px);
+  box-shadow: var(--mcpr-shadow-md);
+}
+
+.mcpr-btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31, 41, 51, 0.3);
 }
 
 .mcpr-btn-outline {
-  border: 2px solid #9820A3;
-  color: #9820A3;
+  border: 2px solid var(--mcpr-primary);
+  color: var(--mcpr-primary);
   background: transparent;
+  border-radius: var(--mcpr-radius);
+  transition: all var(--mcpr-transition);
 }
 
 .mcpr-btn-outline:hover {
-  background: #9820A3;
+  background: var(--mcpr-primary);
   color: white;
+  transform: translateY(-1px);
 }
 
+/* Secondary button (white filled, dark border) */
+.mcpr-btn-secondary {
+  background: var(--mcpr-white);
+  color: var(--mcpr-dark);
+  border: 2px solid var(--mcpr-dark);
+  border-radius: var(--mcpr-radius);
+  padding: 12px 20px;
+  font-weight: 600;
+  transition: all var(--mcpr-transition);
+}
+
+.mcpr-btn-secondary:hover,
+.mcpr-btn-secondary:focus {
+  background: var(--mcpr-dark);
+  color: var(--mcpr-white);
+  box-shadow: var(--mcpr-shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Accent CTA button (purple) — use sparingly */
+.mcpr-btn-accent {
+  background: var(--mcpr-primary);
+  color: var(--mcpr-white);
+  border: 2px solid var(--mcpr-primary);
+  border-radius: var(--mcpr-radius);
+  padding: 12px 20px;
+  font-weight: 600;
+  transition: all var(--mcpr-transition);
+}
+
+.mcpr-btn-accent:hover {
+  background: var(--mcpr-primary-hover);
+  border-color: var(--mcpr-primary-hover);
+  color: var(--mcpr-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(152, 32, 163, 0.25);
+}
+
+/* Bootstrap .btn-dark refinements */
+.btn-dark {
+  background-color: var(--mcpr-dark) !important;
+  color: var(--mcpr-white) !important;
+  border-color: var(--mcpr-dark) !important;
+  border-radius: var(--mcpr-radius);
+  font-weight: 600;
+  padding: 10px 20px;
+  transition: all var(--mcpr-transition);
+}
+
+.btn-dark:hover {
+  background-color: #111 !important;
+  color: var(--mcpr-white) !important;
+  border-color: #111 !important;
+  transform: translateY(-1px);
+  box-shadow: var(--mcpr-shadow-md);
+}
+
+.btn-dark:focus-visible {
+  box-shadow: 0 0 0 3px rgba(31, 41, 51, 0.3);
+}
+
+.btn-outline-dark {
+  border-radius: var(--mcpr-radius);
+  font-weight: 600;
+  padding: 10px 20px;
+  transition: all var(--mcpr-transition);
+}
+
+.btn-outline-dark:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--mcpr-shadow-sm);
+}
+
+/* === Animated Link Underlines === */
+.mcpr-link-animated {
+  position: relative;
+  text-decoration: none;
+}
+
+.mcpr-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--mcpr-primary);
+  transition: width var(--mcpr-transition);
+}
+
+.mcpr-link-animated:hover::after {
+  width: 100%;
+}
+
+/* === Hero === */
+.mcpr-hero-card {
+  background: var(--mcpr-white);
+  border: 1px solid var(--mcpr-border);
+  border-radius: var(--mcpr-radius-lg);
+  padding: 28px;
+  box-shadow: var(--mcpr-shadow-lg);
+}
+
+@media (max-width: 576px) {
+  .mcpr-hero-card {
+    padding: 18px;
+    border-radius: var(--mcpr-radius);
+  }
+}
+
+/* === Section Backgrounds === */
+.mcpr-alt > section:nth-of-type(odd) {
+  background-color: var(--mcpr-white);
+}
+
+.mcpr-alt > section:nth-of-type(even) {
+  background-color: var(--mcpr-light-bg);
+}
+
+/* === Section Spacing === */
+section.py-5 {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+@media (min-width: 992px) {
+  section.py-5 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+}
+
+/* Remove section dividers when alternating backgrounds provide separation */
+.mcpr-alt > section.border-top {
+  border-top: none !important;
+}
+
+/* === Tables (Pricing) === */
+.table {
+  font-size: 0.9375rem;
+}
+
+.table th {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mcpr-muted);
+  border-bottom-width: 2px;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: var(--mcpr-light-bg);
+}
+
+/* Pricing table — always visible, no horizontal scroll */
+.mcpr-pricing-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .mcpr-pricing-table {
+    font-size: 0.7rem;
+  }
+
+  .mcpr-pricing-table th,
+  .mcpr-pricing-table td {
+    padding: 0.35rem 0.25rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .mcpr-pricing-table th {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+  }
+
+  /* Give model column more room */
+  .mcpr-pricing-table th:first-child,
+  .mcpr-pricing-table td:first-child {
+    width: 32%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .mcpr-pricing-table {
+    font-size: 0.8125rem;
+  }
+
+  .mcpr-pricing-table th,
+  .mcpr-pricing-table td {
+    padding: 0.4rem 0.35rem;
+  }
+}
+
+/* === Accordion (FAQ) === */
+.accordion-button {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--mcpr-dark);
+  padding: 1.25rem 1.5rem;
+  transition: all var(--mcpr-transition);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--mcpr-light-bg);
+  color: var(--mcpr-dark);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 3px rgba(31, 41, 51, 0.1);
+  border-color: transparent;
+}
+
+.accordion-body {
+  padding: 1rem 1.5rem 1.25rem;
+  color: var(--mcpr-muted);
+  line-height: 1.7;
+}
+
+.accordion-item {
+  border: 1px solid var(--mcpr-border);
+  border-radius: var(--mcpr-radius) !important;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.accordion-item:last-child {
+  margin-bottom: 0;
+}
+
+/* === Footer === */
+footer {
+  background-color: var(--mcpr-dark-bg);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--mcpr-transition);
+}
+
+footer a:hover {
+  color: var(--mcpr-white);
+}
+
+footer .fw-bold {
+  color: var(--mcpr-white);
+}
+
+footer .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+footer .btn-dark {
+  background-color: var(--mcpr-white) !important;
+  color: var(--mcpr-dark) !important;
+  border-color: var(--mcpr-white) !important;
+}
+
+footer .btn-dark:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: var(--mcpr-dark) !important;
+}
+
+/* === Reviews Page === */
+.reviews-page {
+  background-color: var(--mcpr-light-bg);
+}
+
+/* === Instagram === */
 .instagram-media {
   min-width: 0 !important;
   width: 100% !important;
   max-width: 540px !important;
 }
 
-
-/* Hero content card */
-.mcpr-hero-card {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 18px;
-  padding: 28px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+/* === Links === */
+a:not(.btn):not([class*="mcpr-btn"]):not(.nav-link):not(.mcpr-social):not(.mcpr-brand):not(.navbar-brand):not(.dropdown-item) {
+  color: var(--mcpr-dark);
 }
 
-/* Better spacing on small screens */
-@media (max-width: 576px) {
-  .mcpr-hero-card {
-    padding: 18px;
-    border-radius: 16px;
-  }
+a:not(.btn):not([class*="mcpr-btn"]):not(.nav-link):not(.mcpr-social):not(.mcpr-brand):not(.navbar-brand):not(.dropdown-item):hover {
+  color: var(--mcpr-primary);
 }
 
-
-/* Auto alternating section backgrounds */
-.mcpr-alt > section:nth-of-type(3n + 1) {
-  background-color: #FFFFFF;
+footer a:not(.btn) {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
-.mcpr-alt > section:nth-of-type(3n + 2) {
-  background-color: #9463FD;
+footer a:not(.btn):hover {
+  color: var(--mcpr-white) !important;
 }
 
-.mcpr-alt > section:nth-of-type(3n + 3) {
-  background-color: #393939;
-  color: #ffffff; /* readable text */
+/* === Form Controls === */
+.form-control,
+.form-select {
+  border-radius: var(--mcpr-radius);
+  border-color: var(--mcpr-border);
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  transition: border-color var(--mcpr-transition), box-shadow var(--mcpr-transition);
 }
 
-/* Ensure dark sections flip text automatically */
-.mcpr-alt > section:nth-of-type(3n + 3) h1,
-.mcpr-alt > section:nth-of-type(3n + 3) h2,
-.mcpr-alt > section:nth-of-type(3n + 3) p {
-  color: #ffffff;
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--mcpr-dark);
+  box-shadow: 0 0 0 3px rgba(31, 41, 51, 0.1);
 }
 
-footer{
-  background-color: #BFDCE8;
+.form-label {
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--mcpr-muted);
+  margin-bottom: 0.375rem;
 }
 
-.reviews-page{
-  background-color: #BFDCE8;
+/* === Mobile Sticky CTA Bar === */
+.mcpr-mobile-cta {
+  background: var(--mcpr-white);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--mcpr-border);
+}
+
+/* === Focus Accessibility === */
+*:focus-visible {
+  outline: 2px solid var(--mcpr-dark);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31, 41, 51, 0.2);
+}
+
+/* === Smooth Scroll === */
+html {
+  scroll-behavior: smooth;
 }

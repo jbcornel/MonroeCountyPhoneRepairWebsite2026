@@ -5,7 +5,7 @@ export default function StickyMobileCtaBar() {
   return (
     <div className="d-lg-none">
       <div
-        className="position-fixed start-0 end-0 border-top bg-white"
+        className="position-fixed start-0 end-0 mcpr-mobile-cta"
         style={{
           bottom: 'var(--safe-bottom)',
           zIndex: 1030,

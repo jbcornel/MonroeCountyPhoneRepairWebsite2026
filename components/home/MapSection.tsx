@@ -5,22 +5,31 @@ export default function MapSection() {
   return (
     <section className="py-5 border-top">
       <div className="container">
-        <h2 className="h3 fw-bold mb-3">Monroe location</h2>
+        <p className="text-muted mb-1" style={{ fontSize: '0.875rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+          Visit us
+        </p>
+        <h2 className="h3 fw-bold mb-4">Monroe location</h2>
 
-        <div className="row g-3 align-items-stretch">
+        <div className="row g-4 align-items-stretch">
           <div className="col-12 col-lg-5">
-            <div className="mcpr-card h-100">
-              <div className="fw-bold">{business.name}</div>
-              <div className="mt-2">{formatFullAddress()}</div>
-              <div className="text-muted mt-2">{business.hoursNote}</div>
-              <a className="btn btn-dark mt-3" href={business.googleMapsUrl}>
-                Get Directions
-              </a>
+            <div className="mcpr-card h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div className="fw-bold mb-2">{business.name}</div>
+                <div>{formatFullAddress()}</div>
+                <div className="text-muted mt-2">{business.hoursNote}</div>
+              </div>
+              <div className="mt-3">
+                <a className="btn btn-dark" href={business.googleMapsUrl}>
+                  Get Directions
+                </a>
+              </div>
             </div>
           </div>
 
           <div className="col-12 col-lg-7">
-            <MapEmbed height={360} />
+            <div style={{ borderRadius: 'var(--mcpr-radius)', overflow: 'hidden' }}>
+              <MapEmbed height={360} />
+            </div>
           </div>
         </div>
       </div>

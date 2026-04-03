@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/josephcornell/monroeCountyPhoneRepairWebsite2026/components/layout/BootstrapClient.tsx"],"sourcesContent":["'use client';\n\nimport { useEffect } from 'react';\n\nexport default function BootstrapClient() {\n  useEffect(() => {\n    // Enables navbar collapse, dropdowns, modals, etc.\n    require('bootstrap/dist/js/bootstrap.bundle.min.js');\n  }, []);\n\n  return null;\n}\n"],"names":[],"mappings":";;;;AAEA;;AAFA;;AAIe,SAAS;;IACtB,IAAA,0KAAS;qCAAC;YACR,mDAAmD;;QAErD;oCAAG,EAAE;IAEL,OAAO;AACT;GAPwB;KAAA"}}]
-}
